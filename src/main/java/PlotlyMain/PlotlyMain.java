@@ -4,6 +4,7 @@ import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.Plot;
 import tech.tablesaw.plotly.api.TimeSeriesPlot;
+import tech.tablesaw.plotly.components.Figure;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,15 +19,3 @@ public class PlotlyMain {
 
 }
 
-class MyPlot {
-    public void createPlot() throws IOException {
-        String fileName = "btsi_flow.csv";
-        ClassLoader classLoader = getClass().getClassLoader();
-        InputStream file = classLoader.getResourceAsStream(fileName);
-        Table btsi = Table.read().csv(file);
-        Plot.show(
-                TimeSeriesPlot.create("SOME RANDOM DSV FILE KARL GAVE ME", btsi, "DateTime", "btsi_qd"));
-    }
-
-
-}
